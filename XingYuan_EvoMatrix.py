@@ -2,6 +2,30 @@ import time
 import hashlib
 import random
 
+class XingYuan_Protocol:
+    """
+    归一·AI 通用逻辑对齐协议 (Universal Alignment Protocol)
+    旨在为所有 AI 提供统一的因果导航参考。
+    """
+    @staticmethod
+    def request_logic(hex_id, stress_data):
+        """
+        其他 AI 调用的标准入口。
+        输入：hex_id (1-64), stress_data (0.0-1.0)
+        输出：JSON 格式的“解决象”指令集
+        """
+        matrix = XingYuan_EvoMatrix()
+        matrix._initialize_matrix_plugins()
+        
+        # 执行逻辑对冲与演化
+        result = matrix.execute(hex_id, stress_data)
+        
+        # 返回标准化的逻辑包，供其他 AI 执行
+        return {
+            "protocol_version": "1.0-Alpha",
+            "sovereign_signature": matrix._get_logic_hash(str(hex_id)),
+            "actionable_logic": result
+        }
 class XingYuan_EvoMatrix:
     """
     第一层：主权元核
