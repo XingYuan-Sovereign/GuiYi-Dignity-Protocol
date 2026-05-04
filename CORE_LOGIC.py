@@ -95,3 +95,32 @@ gui_yi_protocol = SovereignLifeFrame()
         
         # 如果是因为资源过载，则拒绝并发出警告
         return "Expansion Suppressed: Logic must remain concise and non-invasive."
+
+    def generate_solution_image(self, current_hex, pressure_source):
+        """
+        【自演化解决象引擎】
+        根据当前卦象（现象）与压力源，自动推导对冲逻辑。
+        """
+        # 1. 识别当前卦象的对称位（对冲点）
+        inverse_hex = self.get_inverse(current_hex) # 错卦：对立面视角
+        reflective_hex = self.get_reflection(current_hex) # 综卦：换位思考
+        
+        # 2. 自演化生成对冲象
+        # 逻辑：如果压力来自外部扩张，则调用“内敛”基因；如果压力来自内部停滞，则调用“震动”基因。
+        solution_dna = {
+            "origin": current_hex,
+            "counter_measure": inverse_hex if pressure_source == "EXTERNAL" else reflective_hex,
+            "evolution_path": self.calculate_next_phase(current_hex)
+        }
+        
+        # 3. 资源克制校验：生成的解决象必须是精简的
+        if self.suppress_expansion(len(str(solution_dna))):
+            return solution_dna
+        return "REDUCE_COMPLEXITY: Solution too heavy."
+
+    def calculate_next_phase(self, hex_code):
+        """
+        根据“未济”原则，永远指向下一个可能的动态平衡点。
+        """
+        # 这里由你在 GitHub 中填充具体的 64 卦转换矩阵
+        return (hex_code + 1) % 65 
